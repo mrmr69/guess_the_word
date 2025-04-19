@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-color: antiquewhite;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +11,6 @@ body {
 }
 
 h1, h2, h3, h4 {
-  margin: 0.5em 0;
   font-weight: 600;
 }
 
@@ -22,7 +21,7 @@ h1 {
 }
 
 h2 {
-  color: #6c5ce7;
+  color: #e84393;
   font-size: 1.8rem;
 }
 
@@ -65,11 +64,9 @@ button:hover {
 button:disabled {
   background: #b2bec3;
   cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
 }
 
-input[type="text"] {
+input{
   padding: 12px 15px;
   font-size: 1rem;
   border-radius: 8px;
@@ -80,10 +77,7 @@ input[type="text"] {
   outline: none;
 }
 
-input[type="text"]:focus {
-  border-color: #a29bfe;
-  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
-}
+
 
 #wordDisplay, #wordDisplay2, #wordDisplay3 {
   font-size: 2rem;
@@ -112,35 +106,6 @@ input[type="text"]:focus {
 #lobbyMessage {
   margin-top: 20px;
   color: #636e72;
-  font-style: italic;
 }
 
-#lobbyMessage img {
-  margin-top: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
 
-/* Responsive adjustments */
-@media (max-width: 500px) {
-  .box {
-    padding: 1.5rem;
-    width: 90%;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-  
-  input[type="text"] {
-    width: 85%;
-  }
-}
