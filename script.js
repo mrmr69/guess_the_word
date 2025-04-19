@@ -1,5 +1,5 @@
 //words&attempts
-let wordList1 = ["apple", "grape", "pearl", "chair", "plant", "brush", "spear", "light", "stone", "watch"]; 
+let wordList1 = ["apple", "gamer", "carot", "chair", "plant", "brush", "spear", "light", "stone", "watch"]; 
 let actualWord = wordList1[Math.floor(Math.random() * wordList1.length)];
 let maxAttempts = 15;
 let attemptsRemaining = maxAttempts;
@@ -58,7 +58,7 @@ function checkGuess() {
   let attemptsDisplay = document.getElementById('attemptsDisplay');
   let submitBtn = document.getElementById('submitBtn');
   let restartBtn = document.getElementById('restartBtn');
-
+  let nextBtn = document.getElementById('home');
   if (guess.length !== actualWord.length) {
     alert('Please enter a ' + actualWord.length + ' letter word.');
     return;
@@ -80,11 +80,9 @@ function checkGuess() {
     successMessage.innerHTML = "Nice! You guessed the word, the next level has been unlocked🎉";
     submitBtn.disabled = true;
     restartBtn.style.display = "inline-block";
-  
     document.getElementById("level2Button").disabled = false;
     level2Button.innerHTML = "Level 2"; 
 
-  
     return;
   }
   
@@ -92,7 +90,7 @@ function checkGuess() {
   attemptsDisplay.innerHTML = "Attempts Left:"+attemptsRemaining;
 
   if (attemptsRemaining <= 0) {
-    successMessage.innerHTML = "Game Over Try again!";
+    successMessage.innerHTML = '❌ Game Over! The correct word was: <span style="color: green;">' + actualWord.toUpperCase() + '</span>';
     submitBtn.disabled = true;
     restartBtn.style.display = "inline-block";
   }
@@ -106,6 +104,8 @@ function restartGame() {
   document.getElementById('attemptsDisplay').innerHTML = "Attempts Left:" + maxAttempts;
   document.getElementById('submitBtn').disabled = false;
   document.getElementById('restartBtn').style.display = "none";
+  actualWord = wordList1[Math.floor(Math.random() * wordList1.length)];
+
 }
 //LEVEL2
 function checkGuess2() {
@@ -146,7 +146,7 @@ function checkGuess2() {
   attemptsDisplay.innerHTML = "Attempts Left: " + attemptsRemaining2;
 
   if (attemptsRemaining2 <= 0) {
-    successMessage.innerHTML = "Game Over! Try again.";
+    successMessage.innerHTML = '❌ Game Over! The correct word was: <span style="color: green;">' + actualWord2.toUpperCase() + '</span>';
     submitBtn.disabled = true;
     restartBtn.style.display = "inline-block";
     
@@ -161,6 +161,8 @@ function restartGame2() {
   document.getElementById('attemptsDisplay2').innerHTML = "Attempts Left:" + maxAttempts2;
   document.getElementById('submitBtn2').disabled = false;
   document.getElementById('restartBtn2').style.display = "none";
+  actualWord2 = wordList2[Math.floor(Math.random() * wordList2.length)];
+
 }
 
 //LEVEL3
@@ -201,7 +203,7 @@ function checkGuess3() {
   attemptsDisplay.innerHTML = "Attempts Left: " + attemptsRemaining3;
 
   if (attemptsRemaining3 <= 0) {
-    successMessage.innerHTML = "Game Over! Try again.";
+    successMessage.innerHTML = '❌ Game Over! The correct word was: <span style="color: green;">' + actualWord.toUpperCase() + '</span>';
     submitBtn.disabled = true;
     restartBtn.style.display = "inline-block";
     
@@ -216,4 +218,6 @@ function restartGame3() {
   document.getElementById('attemptsDisplay3').innerHTML = "Attempts Left:" + maxAttempts3;
   document.getElementById('submitBtn3').disabled = false;
   document.getElementById('restartBtn3').style.display = "none";
+  actualWord3 = wordList3[Math.floor(Math.random() * wordList3.length)];
+
 }
