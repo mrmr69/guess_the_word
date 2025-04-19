@@ -1,80 +1,146 @@
 body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: bisque;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      color: #333;
-    }
+  margin: 0;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  color: #2d3436;
+}
 
-    h1 {
-      color: #bd5d5d;
-    }
+h1, h2, h3, h4 {
+  margin: 0.5em 0;
+  font-weight: 600;
+}
 
-    .box {
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      max-width: 90%;
-      width: 400px;
-      margin: 10px;
-    }
+h1 {
+  color: #e84393;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
 
-    button {
-      background-color: #ff85a2;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-      margin: 10px;
-    }
+h2 {
+  color: #6c5ce7;
+  font-size: 1.8rem;
+}
 
-    button:hover {
-      background-color: #ff638b;
-    }
+.box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 450px;
+  margin: 20px;
+  transition: transform 0.3s ease;
+}
 
-    #guessInput {
-      padding: 10px;
-      font-size: 19.2px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
+.box:hover {
+  transform: translateY(-5px);
+}
 
-    #wordDisplay {
-      font-size: 32px;
-      margin-top: 20px;
-      letter-spacing: 5px;
-    }
-    #guessInput2{
-      padding: 10px;
-      font-size: 19.2px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
-    #wordDisplay2 {
-      font-size: 32px;
-      margin-top: 20px;
-      letter-spacing: 5px;
-    }
-    #guessInput3{
-      padding: 10px;
-      font-size: 19.2px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
-    #wordDisplay3 {
-      font-size: 32px;
-      margin-top: 20px;
-      letter-spacing: 5px;
-    }
+button {
+  background: linear-gradient(to right, #e84393, #fd79a8);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 8px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  background: linear-gradient(to right, #fd79a8, #e84393);
+}
+
+button:disabled {
+  background: #b2bec3;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+input[type="text"] {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #dfe6e9;
+  margin-bottom: 15px;
+  width: 70%;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #a29bfe;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+#wordDisplay, #wordDisplay2, #wordDisplay3 {
+  font-size: 2rem;
+  margin: 1.5rem 0;
+  letter-spacing: 8px;
+  font-weight: bold;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#attemptsDisplay, #attemptsDisplay2, #attemptsDisplay3 {
+  color: #636e72;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+#successMessage, #successMessage2, #successMessage3 {
+  margin: 1rem 0;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+#lobbyMessage {
+  margin-top: 20px;
+  color: #636e72;
+  font-style: italic;
+}
+
+#lobbyMessage img {
+  margin-top: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .box {
+    padding: 1.5rem;
+    width: 90%;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  input[type="text"] {
+    width: 85%;
+  }
+}
