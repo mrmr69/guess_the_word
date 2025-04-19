@@ -1,0 +1,80 @@
+body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: bisque;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      color: #bd5d5d;
+    }
+
+    .box {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      max-width: 90%;
+      width: 400px;
+      margin: 10px;
+    }
+
+    button {
+      background-color: #ff85a2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #ff638b;
+    }
+
+    #guessInput {
+      padding: 10px;
+      font-size: 19.2px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    #wordDisplay {
+      font-size: 32px;
+      margin-top: 20px;
+      letter-spacing: 5px;
+    }
+    #guessInput2{
+      padding: 10px;
+      font-size: 19.2px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    #wordDisplay2 {
+      font-size: 32px;
+      margin-top: 20px;
+      letter-spacing: 5px;
+    }
+    #guessInput3{
+      padding: 10px;
+      font-size: 19.2px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    #wordDisplay3 {
+      font-size: 32px;
+      margin-top: 20px;
+      letter-spacing: 5px;
+    }
