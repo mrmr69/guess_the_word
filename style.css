@@ -9,8 +9,6 @@ body {
   text-align: center;
   color: #333;
   background-image: url('img/bg.png');
-
-
 }
 
 h1, h2, h3, h4 {
@@ -27,7 +25,6 @@ h2 {
   color: #6b8cce; 
   font-size: 28.8px;
 }
-
 
 .box {
   padding: 32px;
@@ -86,7 +83,6 @@ input {
 input:focus {
   outline: none;
   border-color: #4a6fa5;
-  box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
 }
 
 #wordDisplay, #wordDisplay2, #wordDisplay3 {
@@ -109,7 +105,6 @@ input:focus {
   margin: 16px 0;
   padding: 10px;
   border-radius: 8px;
-  background-color: rgba(255,255,255,0.7);
 }
 
 #lobbyMessage {
@@ -117,3 +112,9 @@ input:focus {
   color: grey;
 }
 
+
+#hintDisplay1 ,#hintDisplay2,#hintDisplay3 {
+  color: #6b8cce;
+  margin: 10px;
+ 
+}
