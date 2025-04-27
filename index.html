@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess The Word</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  
+</head>
+<body>
+    <div id="home" class="box">
+        <h1>Guess The Word</h1>
+        
+  <button onclick="goTo('play')">Play</button> <br>
+      </div>
+    <!--LOBBY-->
+      <div id="play" class="box" style="display: none;">
+        <h2>Select the level</h2>
+        <button onclick="goTo('level1')">Level 1</button>
+        <button id="level2Button" onclick="goTo('level2')" disabled>Level 2 🔒</button>
+        <button id="level3Button" onclick="goTo('level3')" disabled>Level 3 🔒</button>
+        <br>
+        <br>
+        <button onclick="goTo('home')">Back</button>
+        <h3 id="lobbyMessage">!Play to unlock levels!</h3>
+      </div>
+    <!--LEVEL 1-->
+      <div id="level1" class="box" style="display: none;">
+        <h2>Guess the word!</h2>
+        <input type="text" id="guessInput" maxlength="5" placeholder="Enter your guess (5 letters)" />
+        <br><br>
+        <h4 id="attemptsDisplay">Attempts Left: 15</h4>
+        <button id="submitBtn" onclick="checkGuess()">Submit Guess</button>
+        <button id="restartBtn" onclick="restartGame()" style="display: none;">Restart</button>
+        <div id="wordDisplay"></div> <br>
+        <h3><div id="successMessage"></div></h3>
+        <button  onclick="goTo('play')">Back</button>
+      </div>
+      <!--LEVEL 2-->
+      <div id="level2" class="box" style="display: none;">
+        <h2>Guess the word!</h2>
+        <input type="text" id="guessInput2" maxlength="6" placeholder="Enter your guess (6 letters)" />
+        <br><br>
+        <h4 id="attemptsDisplay2">Attempts Left: 15</h4>
+        <button id="submitBtn2" onclick="checkGuess2()">Submit Guess</button>
+        <button id="restartBtn2" onclick="restartGame2()" style="display: none;">Restart</button>
+        <div id="wordDisplay2"></div> <br>
+        <h3><div id="successMessage2"></div></h3>
+        <button onclick="goTo('play')">Back</button>
+      </div>
+      <!--LEVEL 3-->
+      <div id="level3" class="box" style="display: none;">
+        <h2>Guess the word!</h2>
+        <input type="text" id="guessInput3" maxlength="6" placeholder="Enter your guess (6 letters)" />
+        <br><br>
+        <h4 id="attemptsDisplay3">Attempts Left: 10</h4>
+        <button id="submitBtn3" onclick="checkGuess3()">Submit Guess</button>
+        <button id="restartBtn3" onclick="restartGame3()" style="display: none;">Restart</button>
+        <div id="wordDisplay3"></div> <br>
+        <h3><div id="successMessage3"></div></h3>
+        <button onclick="goTo('play')">Back</button>
+      </div>
+      
+
+</body>
+</html>
