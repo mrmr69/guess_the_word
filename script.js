@@ -30,7 +30,7 @@ let maxAttempts3 = 10;
 let attemptsRemaining3 = maxAttempts3;
 
 // Hints
-const wordHints = {
+let wordHints = {
   // Level 1 hints
   "apple": "fruit", 
   "gamer": "person",
