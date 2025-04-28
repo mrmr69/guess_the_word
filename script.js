@@ -1,10 +1,15 @@
-// Words & Attempts
+// Words & Attempts & hints
 let wordList1 = [
   "apple", "gamer", "mouse", "chair", "plant", 
   "brush", "spear", "light", "stone", "watch",
   "happy", "juice", "knife", "lucky", "music",
   "ocean", "piano", "queen", "radio"
 ]; 
+let hintList1 = [
+  "fruit","person","animal or device","furniture","nature","tool",
+  "weapon","energy","material","accessory","emotion",
+  "drink","tool","fortune","art","water","musical instrument","royalty","device"
+]
 let actualWord = wordList1[Math.floor(Math.random() * wordList1.length)];
 let maxAttempts = 15;
 let attemptsRemaining = maxAttempts;
@@ -15,6 +20,11 @@ let wordList2 = [
   "banana", "dragon", "guitar", "jacket", "kitten",
   "laptop", "mirror", "orange", "puzzle", "rocket"
 ];
+let hintList2 = [
+  "plant","insect","animal","light","food","dairy",
+  "person","season","season","nature","fruit","animal",
+  "musical instrument","clothing","animal","device","reflective surface","fruit","game","space vehicle"
+]
 let actualWord2 = wordList2[Math.floor(Math.random() * wordList2.length)];
 let maxAttempts2 = 15;
 let attemptsRemaining2 = maxAttempts2;
@@ -25,75 +35,15 @@ let wordList3 = [
   "monkey", "secret", "shadow", "silver",
   "spirit", "sunset", "whisky", "yellow"
 ]; 
+let hintList3 = [
+  "light","monster","sound","structure","warning","building",
+  "object","game","vehicle","nature","animal","hidden information",
+  "dark","metal","ghost or essence","nature","drink","color"
+]
 let actualWord3 = wordList3[Math.floor(Math.random() * wordList3.length)];
 let maxAttempts3 = 10;
 let attemptsRemaining3 = maxAttempts3;
 
-// Hints
-let wordHints = {
-  // Level 1 hints
-  "apple": "fruit", 
-  "gamer": "person",
-  "mouse": "animal or device",
-  "chair": "furniture",
-  "plant": "nature",
-  "brush": "tool",
-  "spear": "weapon",
-  "light": "energy",
-  "stone": "material",
-  "watch": "accessory",
-  "happy": "emotion",
-  "juice": "drink",
-  "knife": "tool",
-  "lucky": "fortune",
-  "music": "art",
-  "ocean": "water",
-  "piano": "musical instrument",
-  "queen": "royalty",
-  "radio": "device",
-  
-  // Level 2 hints
-  "flower": "plant",
-  "spider": "insect",
-  "turtle": "animal",
-  "candle": "light",
-  "cookie": "food",
-  "cheese": "dairy",
-  "winner": "person",
-  "winter": "season",
-  "summer": "season",
-  "sunset": "nature",
-  "banana": "fruit",
-  "dragon": "animal",
-  "guitar": "musical instrument",
-  "jacket": "clothing",
-  "kitten": "animal",
-  "laptop": "device",
-  "mirror": "reflective surface",
-  "orange": "fruit",
-  "puzzle": "game",
-  "rocket": "space vehicle",
-  
-  // Level 3 hints
-  "bright": "light",
-  "zombie": "monster",
-  "scream": "sound",
-  "bridge": "structure",
-  "danger": "warning",
-  "castle": "building",
-  "mirror": "object",
-  "puzzle": "game",
-  "rocket": "vehicle",
-  "forest": "nature",
-  "monkey": "animal",
-  "secret": "hidden information",
-  "shadow": "dark",
-  "silver": "metal",
-  "spirit": "ghost or essence",
-  "sunset": "nature",
-  "whisky": "drink",
-  "yellow": "color"
-};
 
 // Show/Hide levels
 function goTo(id) {
@@ -110,13 +60,13 @@ function goTo(id) {
     document.getElementById('submitBtn').disabled = false;
     document.getElementById('restartBtn').style.display = "none";
     document.getElementById('successMessage').innerHTML = "";
+    document.getElementById('successMessage').style.backgroundColor = "rgba(255, 255, 255, 0)";
     document.getElementById('wordDisplay').innerHTML = "";
     document.getElementById('guessInput').value = '';
     document.getElementById('attemptsDisplay').innerHTML = "Attempts Left:" + attemptsRemaining;
     attemptsRemaining = maxAttempts;
     actualWord = wordList1[Math.floor(Math.random() * wordList1.length)];
-    successMessage.style.backgroundColor = "rgba(255, 255, 255, 0)";
-    document.getElementById('hintDisplay1').textContent = '';
+    document.getElementById('hintDisplay1').innerHTML = '';
     document.getElementById('attemptsDisplay').innerHTML = "Attempts Left:" + maxAttempts;
     document.getElementById('submitBtn').style.display = "inline-block";
   }
@@ -125,15 +75,14 @@ function goTo(id) {
     if (id === "level2") {
       document.getElementById('submitBtn2').disabled = false;
       document.getElementById('restartBtn2').style.display = "none";
-      const successMsg2 = document.getElementById('successMessage2');
-      successMsg2.innerHTML = "";
-      successMsg2.style.backgroundColor = "";
+      document.getElementById('successMessage2').innerHTML = "";
+      document.getElementById('successMessage2').style.backgroundColor = "rgba(255, 255, 255, 0)";
       document.getElementById('wordDisplay2').innerHTML = "";
       document.getElementById('guessInput2').value = '';
       document.getElementById('attemptsDisplay2').innerHTML = "Attempts Left:" + attemptsRemaining2;
       attemptsRemaining2 = maxAttempts2;
       actualWord2 = wordList2[Math.floor(Math.random() * wordList2.length)];
-      document.getElementById('hintDisplay2').textContent = '';
+      document.getElementById('hintDisplay2').innerHTML = '';
       document.getElementById('submitBtn2').style.display = "inline-block";
   }
 
@@ -141,39 +90,44 @@ function goTo(id) {
   if (id === "level3") {
     document.getElementById('submitBtn3').disabled = false;
     document.getElementById('restartBtn3').style.display = "none";
-    const successMsg3 = document.getElementById('successMessage3');
-    successMsg3.innerHTML = "";
-    successMsg3.style.backgroundColor = "";
+    document.getElementById('successMessage3').innerHTML = "";
+      document.getElementById('successMessage3').style.backgroundColor = "rgba(255, 255, 255, 0)";
     document.getElementById('wordDisplay3').innerHTML = "";
     document.getElementById('guessInput3').value = '';
     document.getElementById('attemptsDisplay3').innerHTML = "Attempts Left:" + attemptsRemaining3;
     attemptsRemaining3 = maxAttempts3;
     actualWord3 = wordList3[Math.floor(Math.random() * wordList3.length)];
-    document.getElementById('hintDisplay3').textContent = '';
+    document.getElementById('hintDisplay3').innerHTML = '';
     document.getElementById('submitBtn3').style.display = "inline-block";
   }
 }
 
 // Hint Function
 function showHint() {
-  let currentWord, hintDisplay;
+  let currentWord, hintDisplay, hint;
 
   if (document.getElementById('level1').style.display === "block") {
     currentWord = actualWord;
     hintDisplay = document.getElementById('hintDisplay1');
+    let wordIndex = wordList1.indexOf(currentWord);
+    hint = hintList1[wordIndex];
   } 
   else if (document.getElementById('level2').style.display === "block") {
     currentWord = actualWord2;
     hintDisplay = document.getElementById('hintDisplay2');
+    let wordIndex = wordList2.indexOf(currentWord);
+    hint = hintList2[wordIndex];
   } 
   else if (document.getElementById('level3').style.display === "block") {
     currentWord = actualWord3;
     hintDisplay = document.getElementById('hintDisplay3');
+    let wordIndex = wordList3.indexOf(currentWord);
+    hint = hintList3[wordIndex];
+  }
+  if (hintDisplay && currentWord && hint) {
+    hintDisplay.innerHTML = hint;
   }
 
-  if (hintDisplay && currentWord) {
-    hintDisplay.textContent = wordHints[currentWord];
-  }
 }
 
 // LEVEL1
@@ -212,7 +166,14 @@ function checkGuess() {
   }
   
   attemptsRemaining--;
-  attemptsDisplay.innerHTML = "Attempts Left:" + attemptsRemaining;
+  if (attemptsRemaining >= 10){
+    attemptsDisplay.innerHTML = "Attempts Left:" +"<span style='color: green;'>" + attemptsRemaining + '</span>';
+  }else if(attemptsRemaining >= 5){
+    attemptsDisplay.innerHTML = "Attempts Left:" +"<span style='color: orange;'>" + attemptsRemaining + '</span>';
+  }else{
+    attemptsDisplay.innerHTML = "Attempts Left:" +"<span style='color: red;'>" + attemptsRemaining + '</span>';
+  }
+
 
   if (attemptsRemaining == 0) {
     successMessage.innerHTML = '❌ Game Over! The correct word was: <span style="color: green;">' + actualWord.toUpperCase() + '</span>';
@@ -275,7 +236,13 @@ function checkGuess2() {
   }
 
   attemptsRemaining2--;
-  attemptsDisplay.innerHTML = "Attempts Left: " + attemptsRemaining2;
+  if (attemptsRemaining2 >= 10){
+    attemptsDisplay.innerHTML = "Attempts Left:" +"<span style='color: green;'>" + attemptsRemaining2 + '</span>';
+  }else if(attemptsRemaining2 >= 5){
+    attemptsDisplay.innerHTML = "Attempts Left:" +"<span style='color: orange;'>" + attemptsRemaining2 + '</span>';
+  }else{
+    attemptsDisplay.innerHTML = "Attempts Left:" +"<span style='color: red;'>" + attemptsRemaining2 + '</span>';
+  }
 
   if (attemptsRemaining2 == 0) {
     successMessage.innerHTML = '❌ Game Over! The correct word was: <span style="color: green;">' + actualWord2.toUpperCase() + '</span>';
@@ -337,8 +304,13 @@ function checkGuess3() {
   }
 
   attemptsRemaining3--;
-  attemptsDisplay.innerHTML = "Attempts Left: " + attemptsRemaining3;
-
+  if (attemptsRemaining >= 7){
+    attemptsDisplay.innerHTML = "Attempts Left:" +"<span style='color: green;'>" + attemptsRemaining3 + '</span>';
+  }else if(attemptsRemaining3 >= 4){
+    attemptsDisplay.innerHTML = "Attempts Left:" +"<span style='color: orange;'>" + attemptsRemaining3 + '</span>';
+  }else{
+    attemptsDisplay.innerHTML = "Attempts Left:" +"<span style='color: red;'>" + attemptsRemaining3 + '</span>';
+  }
   if (attemptsRemaining3 == 0) {
     successMessage.innerHTML = '❌ Game Over! The correct word was: <span style="color: green;">' + actualWord3.toUpperCase() + '</span>';
     successMessage.style.backgroundColor = "rgba(255,255,255,0.7)";
