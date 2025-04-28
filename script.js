@@ -37,7 +37,7 @@ let wordList3 = [
 ]; 
 let hintList3 = [
   "light","monster","sound","structure","warning","building",
-  "object","game","vehicle","nature","animal","hidden information",
+  "object","game","space vehicle","nature","animal","hidden information",
   "dark","metal","ghost or essence","nature","drink","color"
 ]
 let actualWord3 = wordList3[Math.floor(Math.random() * wordList3.length)];
@@ -54,7 +54,6 @@ function goTo(id) {
   document.getElementById("level3").style.display = "none";
 
   document.getElementById(id).style.display = "block";
-  document.getElementById('hintDisplay').textContent = '';
 
   if (id === "level1") {
     document.getElementById('submitBtn').disabled = false;
@@ -104,27 +103,20 @@ function goTo(id) {
 
 // Hint Function
 function showHint() {
-  let currentWord, hintDisplay, hint;
-
+  let hintDisplay, hint;
   if (document.getElementById('level1').style.display === "block") {
-    currentWord = actualWord;
     hintDisplay = document.getElementById('hintDisplay1');
-    let wordIndex = wordList1.indexOf(currentWord);
-    hint = hintList1[wordIndex];
+    hint = hintList1[wordList1.indexOf(actualWord)];
   } 
   else if (document.getElementById('level2').style.display === "block") {
-    currentWord = actualWord2;
     hintDisplay = document.getElementById('hintDisplay2');
-    let wordIndex = wordList2.indexOf(currentWord);
-    hint = hintList2[wordIndex];
+    hint = hintList2[wordList2.indexOf(actualWord2)];
   } 
   else if (document.getElementById('level3').style.display === "block") {
-    currentWord = actualWord3;
     hintDisplay = document.getElementById('hintDisplay3');
-    let wordIndex = wordList3.indexOf(currentWord);
-    hint = hintList3[wordIndex];
+    hint = hintList3[wordList3.indexOf(actualWord3)];
   }
-  if (hintDisplay && currentWord && hint) {
+  if (hintDisplay && hint) {
     hintDisplay.innerHTML = hint;
   }
 
@@ -160,6 +152,7 @@ function checkGuess() {
     successMessage.innerHTML = "✔️ Nice! You guessed the word, the next level has been unlocked🎉";
     successMessage.style.backgroundColor = "rgba(255,255,255,0.7)";
     restartBtn.style.display = "inline-block";
+    document.getElementById("submitBtn").style.display = "none";
     document.getElementById("level2Button").disabled = false;
     document.getElementById("level2Button").innerHTML = "Level 2"; 
     return;
@@ -190,7 +183,7 @@ function restartGame() {
   document.getElementById('wordDisplay').innerHTML = '';
   document.getElementById('successMessage').innerHTML = '';
   document.getElementById('successMessage').style.backgroundColor = "rgba(255, 255, 255, 0)";
-  document.getElementById('hintDisplay').textContent = '';
+  document.getElementById('hintDisplay1').innerHTML = '';
   document.getElementById('attemptsDisplay').innerHTML = "Attempts Left:" + maxAttempts;
   document.getElementById('submitBtn').disabled = false;
   document.getElementById('submitBtn').style.display = "inline-block";
@@ -258,7 +251,7 @@ function restartGame2() {
   document.getElementById('guessInput2').value = '';
   document.getElementById('wordDisplay2').innerHTML = '';
   document.getElementById('successMessage2').innerHTML = '';
-  document.getElementById('hintDisplay').textContent = '';
+  document.getElementById('hintDisplay2').innerHTML = '';
   document.getElementById('attemptsDisplay2').innerHTML = "Attempts Left:" + maxAttempts2;
   document.getElementById('successMessage2').style.backgroundColor = "rgba(255, 255, 255, 0)";
   document.getElementById('submitBtn2').disabled = false;
@@ -325,7 +318,7 @@ function restartGame3() {
   document.getElementById('guessInput3').value = '';
   document.getElementById('wordDisplay3').innerHTML = '';
   document.getElementById('successMessage3').innerHTML = '';
-  document.getElementById('hintDisplay').textContent = '';
+  document.getElementById('hintDisplay3').innerHTML = '';
   document.getElementById('successMessage3').style.backgroundColor = "rgba(255, 255, 255, 0)";
   document.getElementById('attemptsDisplay3').innerHTML = "Attempts Left:" + maxAttempts3;
   document.getElementById('submitBtn3').disabled = false;
