@@ -1,15 +1,30 @@
 // Words & Attempts
-let wordList1 = ["apple", "gamer", "mouse", "chair", "plant", "brush", "spear", "light", "stone", "watch"]; 
+let wordList1 = [
+  "apple", "gamer", "mouse", "chair", "plant", 
+  "brush", "spear", "light", "stone", "watch",
+  "happy", "juice", "knife", "lucky", "music",
+  "ocean", "piano", "queen", "radio"
+]; 
 let actualWord = wordList1[Math.floor(Math.random() * wordList1.length)];
 let maxAttempts = 15;
 let attemptsRemaining = maxAttempts;
 
-let wordList2 = ["flower", "spider", "turtle", "candle", "cookie", "cheese", "winner", "winter", "summer", "sunset"]; 
+let wordList2 = [
+  "flower", "spider", "turtle", "candle", "cookie", 
+  "cheese", "winner", "winter", "summer", "sunset",
+  "banana", "dragon", "guitar", "jacket", "kitten",
+  "laptop", "mirror", "orange", "puzzle", "rocket"
+];
 let actualWord2 = wordList2[Math.floor(Math.random() * wordList2.length)];
 let maxAttempts2 = 15;
 let attemptsRemaining2 = maxAttempts2;
 
-let wordList3 = ["bright", "zombie", "scream", "bridge", "danger", "castle", "mirror", "puzzle", "rocket", "forest", "monkey"]; 
+let wordList3 = [
+  "bright", "zombie", "scream", "bridge", "danger", 
+  "castle", "mirror", "puzzle", "rocket", "forest",
+  "monkey", "secret", "shadow", "silver",
+  "spirit", "sunset", "whisky", "yellow"
+]; 
 let actualWord3 = wordList3[Math.floor(Math.random() * wordList3.length)];
 let maxAttempts3 = 10;
 let attemptsRemaining3 = maxAttempts3;
@@ -27,18 +42,37 @@ const wordHints = {
   "light": "energy",
   "stone": "material",
   "watch": "accessory",
+  "happy": "emotion",
+  "juice": "drink",
+  "knife": "tool",
+  "lucky": "fortune",
+  "music": "art",
+  "ocean": "water",
+  "piano": "musical instrument",
+  "queen": "royalty",
+  "radio": "device",
   
   // Level 2 hints
   "flower": "plant",
   "spider": "insect",
   "turtle": "animal",
-  "candle": "light source",
+  "candle": "light",
   "cookie": "food",
   "cheese": "dairy",
   "winner": "person",
   "winter": "season",
   "summer": "season",
   "sunset": "nature",
+  "banana": "fruit",
+  "dragon": "animal",
+  "guitar": "musical instrument",
+  "jacket": "clothing",
+  "kitten": "animal",
+  "laptop": "device",
+  "mirror": "reflective surface",
+  "orange": "fruit",
+  "puzzle": "game",
+  "rocket": "space vehicle",
   
   // Level 3 hints
   "bright": "light",
@@ -51,7 +85,14 @@ const wordHints = {
   "puzzle": "game",
   "rocket": "vehicle",
   "forest": "nature",
-  "monkey": "animal"
+  "monkey": "animal",
+  "secret": "hidden information",
+  "shadow": "dark",
+  "silver": "metal",
+  "spirit": "ghost or essence",
+  "sunset": "nature",
+  "whisky": "drink",
+  "yellow": "color"
 };
 
 // Show/Hide levels
@@ -162,7 +203,7 @@ function checkGuess() {
   document.getElementById('guessInput').value = '';
 
   if (guess === actualWord) {
-    successMessage.innerHTML = "Nice! You guessed the word, the next level has been unlocked🎉";
+    successMessage.innerHTML = "✔️ Nice! You guessed the word, the next level has been unlocked🎉";
     successMessage.style.backgroundColor = "rgba(255,255,255,0.7)";
     restartBtn.style.display = "inline-block";
     document.getElementById("level2Button").disabled = false;
@@ -193,6 +234,8 @@ function restartGame() {
   document.getElementById('submitBtn').disabled = false;
   document.getElementById('submitBtn').style.display = "inline-block";
   document.getElementById('restartBtn').style.display = "none";
+  document.getElementById('hintDisplay1').textContent = '';
+
 }
 
 // LEVEL2
@@ -222,7 +265,7 @@ function checkGuess2() {
   document.getElementById('guessInput2').value = '';
 
   if (guess === actualWord2) {
-    successMessage.innerHTML = "Nice! You guessed the word, the next level has been unlocked🎉";
+    successMessage.innerHTML = "✔️ Nice! You guessed the word, the next level has been unlocked🎉";
     successMessage.style.backgroundColor = "rgba(255,255,255,0.7)";
     submitBtn.style.display = "none";
     restartBtn.style.display = "inline-block";
@@ -254,6 +297,8 @@ function restartGame2() {
   document.getElementById('submitBtn2').disabled = false;
   document.getElementById('submitBtn2').style.display = "inline-block";
   document.getElementById('restartBtn2').style.display = "none";
+  document.getElementById('hintDisplay2').textContent = '';
+
 }
 
 // LEVEL3
@@ -283,7 +328,7 @@ function checkGuess3() {
   document.getElementById('guessInput3').value = '';
 
   if (guess === actualWord3) {
-    successMessage.innerHTML = "Nice! You guessed the word 🎉";
+    successMessage.innerHTML = "✔️ Nice! You guessed the word 🎉";
     successMessage.style.backgroundColor = "rgba(255,255,255,0.7)";
     submitBtn.style.display = "none";
     restartBtn.style.display = "inline-block";
@@ -314,4 +359,6 @@ function restartGame3() {
   document.getElementById('submitBtn3').disabled = false;
   document.getElementById('submitBtn3').style.display = "inline-block";
   document.getElementById('restartBtn3').style.display = "none";
+  document.getElementById('hintDisplay3').textContent = '';
+
 }
